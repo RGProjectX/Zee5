@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/{channel}")
 
-def read_root(channel: int):
+def read_root(channel: str):
 
 	stream = g(f'https://catalogapi.zee5.com/v1/channel/{channel}').json()['stream_url_hls']
 
