@@ -9,6 +9,8 @@ def read_root(channel: str):
 	try:
             stream = g(f'https://catalogapi.zee5.com/v1/channel/{channel}').json()['stream_url_hls']
             token = g('https://useraction.zee5.com/token/live.php').json()['video_token']
-            RedirectResponse(f'{stream}{token}')
+            url = stream + token
+            print(url)
+            RedirectResponse(url)
 	except Exception as e:
     	    return e
